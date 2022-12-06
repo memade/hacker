@@ -3,23 +3,29 @@
 
 namespace local {
 
- class Physical final : public IPhysical {
+ class Hacker final : public IHacker {
   std::shared_ptr<std::mutex> m_Mutex = std::make_shared<std::mutex>();
  public:
-  Physical();
-  virtual ~Physical();
+  Hacker();
+  virtual ~Hacker();
  private:
   void Init();
   void UnInit();
  protected:
-  ICore* CreateCore() override final;
+  bool Start() override final;
+  void Stop() override final;
+  bool Ready() const override final;
+  bool TerminalProcess(const DWORD&) const override final;
+  bool ProtectionProcess(const DWORD&, const DWORD& ProcessSignatureLevel) const override final;
+  bool MakeSystemProcess(const DWORD&) const override final;
  private:
-  std::map<TypeIdentify, Core*> m_CoreQ;
+  std::atomic_bool m_IsOpen = false;
+  shared::container::map<device::EnDeviceType, device::IDevice*> m_DeviceObjQ;
  };
 
 
 
- extern Physical* __gpPhysical;
+ extern Hacker* __gpHacker;
 }///namespace lcoal
 
 /// /*新生®（上海）**/

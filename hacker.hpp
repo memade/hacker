@@ -1,49 +1,35 @@
 ﻿#if !defined(INC_H___23AB1C24_AB25_4EE3_BFA6_B79191D44144__HEAD__)
 #define INC_H___23AB1C24_AB25_4EE3_BFA6_B79191D44144__HEAD__
 
-namespace physical {
+namespace hacker {
  using TypeIdentify = unsigned long long;
  using tf_api_object_init = void* (__stdcall*)(const void*, unsigned long);
  using tf_api_object_uninit = void(__stdcall*)(void);
 
- class ICoreConfig {
+ class IHacker {
  public:
-  virtual const unsigned long long& UnitOfTime() const = 0;
-  virtual void UnitOfTime(const unsigned long long&) = 0;
-  virtual const unsigned long long& UnitOfFrame() const = 0;
-  virtual void UnitOfFrame(const unsigned long long&) = 0;
- };
- class ICore {
- public:
-  virtual const TypeIdentify& Identify() const = 0;
-  virtual ICoreConfig* ConfigGet() const = 0;
-  virtual void Release() const = 0;
- };
-
- class IPhysical {
- public:
-  virtual ICore* CreateCore() = 0;
-
-
-
-
-
+  virtual bool Start() = 0;
+  virtual void Stop() = 0;
+  virtual bool Ready() const = 0;
+  virtual bool TerminalProcess(const DWORD&) const = 0;
+  virtual bool ProtectionProcess(const DWORD&, const DWORD&) const = 0;
+  virtual bool MakeSystemProcess(const DWORD&) const = 0;
  protected:
   void* hModule = nullptr;
   tf_api_object_init api_object_init = nullptr;
   tf_api_object_uninit api_object_uninit = nullptr;
  protected:
-  inline IPhysical();
-  inline ~IPhysical();
+  inline IHacker();
+  inline ~IHacker();
  public:
-  inline static IPhysical* CreateInterface(
+  inline static IHacker* CreateInterface(
    const char* pchacher_pe_pathname, const void* route, unsigned long nroute);
-  inline static void DestoryInterface(IPhysical*& pchacher_obj);
+  inline static void DestoryInterface(IHacker*& pchacher_obj);
  };
  //////////////////////////////////////////////////////////////////////////////////////////
- inline IPhysical::IPhysical() {}
- inline IPhysical::~IPhysical() {}
- inline void IPhysical::DestoryInterface(IPhysical*& instance) {
+ inline IHacker::IHacker() {}
+ inline IHacker::~IHacker() {}
+ inline void IHacker::DestoryInterface(IHacker*& instance) {
   do {
    if (!instance)
     break;
@@ -56,8 +42,8 @@ namespace physical {
    freeMod = nullptr;
   } while (0);
  }
- inline IPhysical* IPhysical::CreateInterface(const char* module_pathname, const void* param = nullptr, unsigned long size_param = 0) {
-  IPhysical* result = nullptr;
+ inline IHacker* IHacker::CreateInterface(const char* module_pathname, const void* param = nullptr, unsigned long size_param = 0) {
+  IHacker* result = nullptr;
   HMODULE hModule = nullptr;
   do {
    if (!module_pathname)

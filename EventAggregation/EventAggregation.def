@@ -1,0 +1,34 @@
+LIBRARY
+EXPORTS
+BriAllocateRpcBuffer @1
+BriCleanup @2
+BriCreateBrokeredEvent @3
+BriCreateBrokeredEventEx @4
+BriDeleteBrokeredEvent @5
+BriFreeRpcBuffer @6
+BriGetBrokerAvailabilityChangeStamp @7
+BriIsBrokerRegistered @8
+BriRegisterToBrokerAvailability @9
+BriResolveBrokerIdByEventId @10
+BriUnregisterFromBrokerAvailability @11
+EACreateAggregateEvent @12
+EADeleteAggregateEvent @13
+EAEnumerateAggregateEvents @14
+EAQueryAggregateEventData @15
+EaCreateAggregatedEvent @16
+EaCreateAggregation @17
+EaDecodeBrokeredEvent @18
+EaDeleteAggregatedEvent @19
+EaDeleteAggregatedEventParameters @20
+EaDeleteAggregation @21
+EaDisableAggregatedEvent @22
+EaEnableAggregatedEvent @23
+EaEncodeBrokeredEvent @24
+EaFreeAggregatedEventParameters @25
+EaFreeBuffer @26
+EaGetAggregation @27
+EaQueryAggregateEventConditionState @28
+EaQueryAggregatedEvent @29
+EaQueryAggregatedEventParameters @30
+EaSignalAggregatedEvent @31
+EaStoreAggregatedEventParameters @32

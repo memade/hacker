@@ -19,12 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="devices\device.cpp" />
-    <ClCompile Include="devices\MicrosoftProcexp152\MicrosoftProcexp152.cpp" />
-    <ClCompile Include="devices\MicroStarRTCore\RTCore.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="export.cpp" />
-    <ClCompile Include="hacker.cpp" />
+    <ClCompile Include="exports.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -33,29 +29,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="devices\device.h" />
-    <ClInclude Include="devices\MicrosoftProcexp152\MicrosoftProcexp152.h" />
-    <ClInclude Include="devices\MicroStarRTCore\RTCore.h" />
-    <ClInclude Include="export.h" />
-    <ClInclude Include="hacker.h" />
-    <ClInclude Include="hacker.hpp" />
-    <ClInclude Include="local.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="exports.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="hacker.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="hacker.rc" />
+    <None Include="MicrosoftWindowPublisherShellCode.def" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{99253DAE-D5DE-438B-9DE2-78925F305E2B}</ProjectGuid>
+    <ProjectGuid>{FEE9FE23-CE79-4160-AAA2-9CA9B68C8821}</ProjectGuid>
     <RootNamespace>KitTip360</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>hacker</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,7 +119,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\;$(SolutionDir)..\..\projects\$(SolutionName)\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -144,16 +129,20 @@
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\librarys\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Project.Library\Gpl\$(Configuration)\</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>call $(SolutionDir)..\..\compile\scripts\projects\PreBuildEvent_hacker.bat $(Configuration)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -165,7 +154,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\;$(SolutionDir)..\..\projects\$(SolutionName)\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -177,15 +166,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\librarys\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Project.Library\Gpl\$(Configuration)\</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>call $(SolutionDir)..\..\compile\scripts\projects\PreBuildEvent_hacker.bat $(Configuration)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>
@@ -200,7 +189,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\;$(SolutionDir)..\..\projects\$(SolutionName)\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -209,13 +198,17 @@
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\librarys\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <PreBuildEvent>
-      <Command>call $(SolutionDir)..\..\compile\scripts\projects\PreBuildEvent_hacker.bat $(Configuration)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -227,7 +220,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\projects\;$(SolutionDir)..\..\projects\$(ProjectName)\;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\3rdparty\;$(SolutionDir)..\..\projects\$(SolutionName)\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -239,12 +232,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\projects\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\librarys\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <PreBuildEvent>
-      <Command>call $(SolutionDir)..\..\compile\scripts\projects\PreBuildEvent_hacker.bat $(Configuration)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>

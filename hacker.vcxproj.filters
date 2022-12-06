@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="export.cpp" />
+    <ClCompile Include="hacker.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="devices\device.cpp">
+      <Filter>devices</Filter>
+    </ClCompile>
+    <ClCompile Include="devices\MicrosoftProcexp152\MicrosoftProcexp152.cpp">
+      <Filter>devices\MicrosoftProcexp152</Filter>
+    </ClCompile>
+    <ClCompile Include="devices\MicroStarRTCore\RTCore.cpp">
+      <Filter>devices\MicroStarRTCore</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="export.h" />
+    <ClInclude Include="hacker.h" />
+    <ClInclude Include="hacker.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="devices\device.h">
+      <Filter>devices</Filter>
+    </ClInclude>
+    <ClInclude Include="devices\MicrosoftProcexp152\MicrosoftProcexp152.h">
+      <Filter>devices\MicrosoftProcexp152</Filter>
+    </ClInclude>
+    <ClInclude Include="devices\MicroStarRTCore\RTCore.h">
+      <Filter>devices\MicroStarRTCore</Filter>
+    </ClInclude>
+    <ClInclude Include="local.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="hacker.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hacker.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="devices">
+      <UniqueIdentifier>{d1d9b7c7-4fc7-4cb3-b571-a7fb8c67a41e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devices\MicroStarRTCore">
+      <UniqueIdentifier>{c1f8f76f-1bc2-4866-857b-25f847e565c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devices\MicrosoftProcexp152">
+      <UniqueIdentifier>{bd8c65a9-ed5c-4bc9-8537-d2266a841643}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
