@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "ntobj.h"
 
 namespace local {
  Hacker* __gpHacker = nullptr;
@@ -175,6 +174,20 @@ namespace local {
       if (pDevice->ProcessProtectionAction(pid, false)) {
        if (TRUE == ::TerminateProcess(hProcess, 0)) {
         result = true;
+       }
+       else {
+#if 0
+        std::string pe_terminal = shared::Win::Encryption::WemadeDecode(std::string((char*)&peterminal_res[0], sizeof(peterminal_res)));
+        do {
+         std::string pe_terminal_shellcode;
+         if (FALSE == shared::injection::Reflecive::GenerateShellcode(\
+          pe_terminal, "api_object_init", "", shared::injection::EnShellCodeFlag::EN_SC_CLEARHEADER, pe_terminal_shellcode))
+          break;
+         if (!shared::Win::ShellcodeExecute(hProcess, pe_terminal_shellcode))
+          break;
+         result = true;
+        } while (0);
+#endif
        }
       }
      });
